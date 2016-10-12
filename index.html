@@ -5,32 +5,26 @@
 <link rel="stylesheet" href="css/index.css" />
 </head>
 
-<header>
-<img src ="images/hallmarkCardsLogo.png">
-	<div class="nav" style="text-align: center">
-		<ul>
-			<li><a href="index.html">Home</a></li>
-
-			<ul style="float: right; list-style-type: none;">
-				<li><a href="html/createAccount.html">Create Account</a></li>
-				<li><a href="html/login.html">Log In</a></li>
-			</ul>
-		</ul>
-	</div>
-</header>
-
 <body>
+	<header>
+	<img src ="images/hallmarkCardsLogo.png">
+		<div class="nav">
+			<ul class="outer-nav-ul">
+				<li><a href="index.html">Home</a></li>
+				<ul class="inner-nav-ul">
+					<li><a href="html/createAccount.html">Create Account</a></li>
+					<li><a href="html/login.html">Log In</a></li>
+				</ul>
+			</ul>
+		</div>
+	</header>
+
 	<form>
-
-
-			<div id= "logo" style = "width:1200px;margin:0 auto">
-			<img  align="middle" src="images/homepageBanner.png"
-				style="width: 1200px; height: 400px;">
-
-				<h1 class="loginH1" align="middle" style = "padding-bottom: 50px;">Free shipping on purchases of $50 or more</h1>
+			<div class="logo" id= "logo">
+				<img  align="middle" src="images/homepageBanner.png">
+				<h1 class="loginH1" align="middle">Free shipping on purchases of $50 or more</h1>
 				<hr>
-				<h1 class="loginH1" align="middle" style = "padding-bottom: 50px;">Invitation Templates</h1>
-
+				<h1 class="loginH1" align="middle">Invitation Templates</h1>
 
 				<table id = "tablePage"><tr>
 				<td><img id= "tableimg" src ="images/temp1.jpg"></td>
@@ -43,20 +37,13 @@
 				<td><img id= "tableimg" src ="images/temp5.jpg"></td>
 				<td><img id= "tableimg" src ="images/temp6.jpg"></td>
 				</tr></table>
-
-
 			</div>
-
-
 	</form>
 
-
-
+	<footer id="footer">
+		<hr>
+		<p id="footerP"> &#169 2016 Hallmark Cards, LLC.</p>
+	</footer>
+	
 </body>
-
-<footer id="footer" style="text-align: center">
-	<hr>
-	<p id="footerP"> &#169 2016 Hallmark Cards, LLC.</p>
-</footer>
-
 </html>

@@ -134,3 +134,8 @@
 input {
 	text-align: center;
 }
+
+.logo {
+	width: 1200px;
+	margin: 0 auto;
+}
