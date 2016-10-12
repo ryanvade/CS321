@@ -139,3 +139,47 @@ input {
 	width: 1200px;
 	margin: 0 auto;
 }
+
+/*----------------------------------OrderComfirmation.html------------------------------*/
+
+h1.thanks{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	text-decoration: underline;
+	color: #613790;
+	font-family: "channel";
+
+}
+
+body.thanks{
+	text-align: center;
+	font-family: "channel";
+}
+
+ul.thanks{
+
+	color: #613790;
+	font-size: large;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+li.thanks{
+	color: #613790;
+	font-family: "channel";
+	font-size: large;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+li.thank_you{
+	color: #613790;
+	font-family: "Times New Roman";
+	font-size: 36px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
