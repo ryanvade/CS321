@@ -5,7 +5,7 @@
 	color: red;
 	font-family: Arial Black, Gadget, sans-serif;
 	font-size: 10px;
-	
+
 }
 
 
@@ -24,25 +24,35 @@
 #logo {
 	width: 50%;
 	padding-top: 150px;
-	
+
 }
 
 #tablePage {
 	padding-left: 50px;
-	
+
 }
 #tablePage2 {
 	padding-top: 0px;
-	
+
 }
 #tableimg {
 	padding: 10px;
-	
+
 }
 
 .nav { /*nav bar*/
 	display: inline;
-	
+	text-align: center;
+
+}
+
+.outer-nav-ul {
+
+}
+
+.inner-nav-ul {
+	float: right;
+	list-style-type: none;
 }
 
 .nav ul {
@@ -51,8 +61,8 @@
 	padding: 0;
 	overflow: hidden; /* Allows me to have really long text*/
 	background-color: #613790;
-	
-	
+
+
 }
 
 .nav ul li { /* List Items */
@@ -68,34 +78,36 @@
 	text-decoration: none;
 	border-right: 2px solid white;
 	font-family: Arial Black, Gadget, sans-serif;
-	
-	
+
+
 
 }
 
 .nav ul li a:hover {
-	
+
 	background-color: #7A54A6;
 	color: white;
-	
+
 }
 #footer {
 	margin: 300px auto;
+	text-align: center;
+
 }
 
 /*--------------------- login.html----------------------------------*/
 
 .log {
-	
+	text-align: center;
 	margin: 200px auto;
-	width: 50%
+	width: 50%;
 }
 
 .loginH1{
 	font-family: Arial Black, Gadget, sans-serif;
- 	color: #613790; 
-	
-	
+ 	color: #613790;
+
+
 }
 
 
@@ -109,33 +121,16 @@
 }
 
 #createAccountTable {
-	
+
 	padding: 15px;
 	margin: 0 auto;
-	
+
 }
 
 #accountPadding {
 	padding-bottom: 40px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+input {
+	text-align: center;
+}
