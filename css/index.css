@@ -184,3 +184,30 @@ li.thank_you{
 	margin-right: auto;
 }
 
+
+.page-title {
+	text-align: center;
+	margin: 20px auto;
+	width: 50%;
+}
+
+.columns {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	text-align: center;
+	width: 50%;
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	-moz-column-count: 2; /* Firefox */
+	column-count: 2;
+}
+
+.column {
+	-webkit-column-count: 1; /* Chrome, Safari, Opera */
+-moz-column-count: 1; /* Firefox */
+column-count: 1;
+}
+
+.row {
+	margin: 10px auto;
+}
