@@ -211,3 +211,28 @@ column-count: 1;
 .row {
 	margin: 10px auto;
 }
+
+/*-------------------- editor.html -----------------------*/
+
+table.editor {
+    width: 525px;
+    height: 720px;
+    background-image: url("../images/temp2.jpg");
+    background-size: 525px, 720px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+input.card {
+    background: transparent;
+    font-family: Arial Black, Gadget, sans-serif;
+    border-style: dotted;
+    width: 80%;
+    font-size: 24px;
+}
+
+#cardtitle {
+    font-size: 46px;
+}
