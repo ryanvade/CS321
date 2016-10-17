@@ -233,6 +233,10 @@ input.card {
     font-size: 24px;
 }
 
+input.fontsize {
+    width: 35px;
+}
+
 #cardtitle {
     font-size: 46px;
 }
