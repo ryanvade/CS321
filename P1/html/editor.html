@@ -7,13 +7,14 @@
 
 <body>
 	<header>
-	<img src ="images/hallmarkCardsLogo.png">
-		<div class="nav">
-			<ul class="outer-nav-ul">
-				<li><a href="index.html">Home</a></li>
-				<ul class="inner-nav-ul">
-					<li><a href="html/createAccount.html">Create Account</a></li>
-					<li><a href="html/login.html">Log In</a></li>
+	<img src ="../images/hallmarkCardsLogo.png">
+		<div class="nav" style="text-align: center">
+			<ul>
+				<li><a href="newIndex.html">Home</a></li>
+				<ul style="float: right; list-style-type: none;">
+					<li><a href ="trackOrders.html">Track Orders</a></li>
+					<li><a href="#">User</a></li>
+					<li><a href="../index.html">Logout</a><li>
 				</ul>
 			</ul>
 		</div>
@@ -22,15 +23,53 @@
   <span>
     <button>Undo</button>
     <button>Redo</button>
-    <button>Font Selection</button>
-    <button>Font Selection</button>
+    <select>
+        <option disabled>Font Selection</option>
+        <option disabled>--------------</option>
+        <option>Arial</option>
+        <option>Calibri</option>
+        <option>Times New Roman</option>
+    </select>
+    <input class="fontsize" type="number" value=14>
+    <select>
+        <option disabled>Card Size</option>
+        <option disabled>--------------</option>
+        <option>3 1/2 x 4 7/8</option>
+        <option>4 1/4 x 5 1/2</option>
+        <option>5 1/8 x 7</option>
+        <option>5 1/2 x 8 1/2</option>
+    </select>
     <button>Add Text Area</button>
-    <button>Size</button>
     <button>Upload Image</button>
     <button>Save</button>
   </span>
+  <table class="editor">
+        
+    <tr><td><input class="card" id="cardtitle" type="text"/></td></tr>
+    <tr><td><input class="card" type="text"/></td></tr>
+    <tr><td><input class="card" type="text"/></td></tr>
+    <tr><td><input class="card" type="text"/></td></tr>
+    <tr><td><input class="card" type="text"/></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+        
+  </table>
+      
+  <div>
+      <span>
+          <a href="newIndex.html"><button type="button">Cancel</button></a>
+          <a href="paymentAndShipping.html"><button type="button">Continue</button></a>
+          Quantity: <input type="number" value="1"/>
+      </span>
+          
   </div>
 
+  </div>
+   
   	<footer id="footer">
   		<hr>
   		<p id="footerP"> &#169 2016 Hallmark Cards, LLC.</p>
