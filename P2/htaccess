@@ -1,4 +1,8 @@
 Options -MultiViews
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^index.php [Qsa, L]
+DirectoryIndex index.php
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME}  -d
+RewriteRule  ^.*$  -  [L]
+RewriteCond %{REQUEST_FILENAME}  -f
+RewriteRule  ^.*$  -  [L]
+RewriteRule ^.*$    index.php [L]

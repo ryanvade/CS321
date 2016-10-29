@@ -1,10 +1,22 @@
+/**
+* Created by PhpStorm.
+* User: ryan owens
+* Date: 10/28/2016
+* Time: 8:14 PM
+*/
+
 <?php
     require './inc/db.php';
-    require './inc/User.php';
-    require './inc/Order.php';
-    require './inc/Image.php';
-    require './inc/Invitation.php';
-    require './inc/Template.php';
+
+    require './inc/models/User.php';
+    require './inc/models/Order.php';
+    require './inc/models/Image.php';
+    require './inc/models/Invitation.php';
+    require './inc/models/Template.php';
+
+    require './inc/views/HomePage.php';
+    require './inc/views/LoginPage.php';
+    require './inc/views/RegisterPage.php';
 
 	function getCurrentUri()
 	{
@@ -14,15 +26,44 @@
 		$uri = '/' . trim($uri, '/');
 		return $uri;
 	}
+
+    function redirect($url, $statusCode = 303)
+    {
+        header('Location: ' . $url, true, $statusCode);
+        die();
+    }
  
 	$base_url = getCurrentUri();
 	$routes = array();
 	$routes = explode('/', $base_url);
-    $db = new db();
+    $database = new db();
+    $user = null;
+    $order = null;
+    $page = null;
  
 if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-
+    switch ($routes[1]){
+        case 'login':
+            echo 'Login with : ';
+            print_r($_POST);
+            break;
+        case 'register':
+            echo 'Register with: ';
+            print_r($_POST);
+            break;
+        case 'addInvitation':
+            echo 'Add Invitation with: ';
+            print_r($_POST);
+            break;
+        case 'order':
+            echo 'Order with: ';
+            print_r($_POST);
+            break;
+        default:
+            redirect('./index');
+            break;
+    }
 }else
 {
     if(session_status() == PHP_SESSION_NONE)
@@ -32,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     {
         if(isset($_SESSION['user_id']))
         {
-            $user = new User($_SESSION['user_id']);
+            $user = new User($db = $database, $id = $_SESSION['user_id']);
         }
 
         if(isset($_SESSION['order']) && isset($_SESSION['order']['id']))
@@ -43,13 +84,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
 	switch($routes[1]){
         case '': // /
-            echo 'home page';
+        case 'index':
+            $page = new HomePage($user, $order);
+            echo $page->view();
             break;
         case 'login':
-            echo 'login page';
+            if($user == null)
+            {
+                $page = new LoginPage();
+                echo $page->view();
+            }else
+            {
+              redirect('./index');
+            }
             break;
         case 'register':
-            echo 'register page';
+            if($user == null)
+            {
+                $page = new RegisterPage();
+                echo $page->view();
+            }else
+            {
+                redirect('./index');
+            }
             break;
         case 'templates':
             if(isset($routes[2])) {
@@ -92,3 +149,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             break;
 	}
 }
+
+$db->close();
