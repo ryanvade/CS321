@@ -1,12 +1,5 @@
 <?php
 
-require '../models/User.php';
-/**
- * Created by PhpStorm.
- * User: ryan owens
- * Date: 10/29/2016
- * Time: 11:25 AM
- */
 class RegisterUser
 {
     private $db;
@@ -24,9 +17,8 @@ class RegisterUser
 
     public function action()
     {
-        $user = new User($this->db, $this->username, $this->email, $this->password);
-        $user->create();
-
+        $user = new User(null, $this->username, $this->email, $this->password, $this->db);
+        $id = $user->create();
         return $user;
     }
 }

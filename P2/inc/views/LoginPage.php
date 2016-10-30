@@ -1,11 +1,5 @@
-<?php
 
-/**
- * Created by PhpStorm.
- * User: ryan owens
- * Date: 10/29/2016
- * Time: 11:04 AM
- */
+<?php
 class LoginPage
 {
 

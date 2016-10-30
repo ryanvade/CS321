@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: ryan owens
- * Date: 10/28/2016
- * Time: 8:14 PM
- */
 class db
 {
     private $db_username = '';
@@ -35,19 +28,21 @@ class db
     public function insert($table, $columns, $values)
     {
         $query = 'INSERT INTO ' . $table . '(';
-        foreach($columns as $column)
+        for($i = 0; $i < count($columns) - 1; $i++)
         {
-            $query .= $columns . ',';
+            $query .= $columns[$i] . ',';
         }
+        $query .= $columns[count($columns) - 1];
         $query .= ') VALUES (';
-        foreach($values as $value)
+        for($j = 0; $j < count($values) - 1; $j++)
         {
-            $query .= $value . ',';
+            $query .= "'". $values[$j] . "'" . ',';
         }
+        $query .= "'"  . $values[count($values) - 1] . "'";
         $query .=');';
         if($this->mysqli->query($query) === TRUE)
         {
-            return $this->mysqli->query('SELECT LAST_INSERT_ID()');
+            return $this->mysqli->insert_id;
         }else
         {
             return $this->mysqli->error;
@@ -74,15 +69,17 @@ class db
 
     public function getRow($table, $columns, $values)
     {
-        $query = 'SELECT * FROM ' . $table . ' WHERE ';
-        for($i = 0; $i < count($columns); $i++)
+        $query = 'SELECT * FROM ' . $table . ' WHERE ' . $columns[0] . " = '" . $values[0] . "'";
+        for($i = 1; $i < count($columns); $i++)
         {
-            $query .= $columns[$i] . " ='" . $values[$i] . "'";
+            $query .= ' AND ' . $columns[$i] . " ='" . $values[$i] . "'";
         }
+        $result = $this->mysqli->query($query);
 
-        if($result = $this->mysqli->query($query) === TRUE)
+        if($result)
         {
-            return $result->fetch_row();
+            $row = $result->fetch_row();
+            return $row;
         }else
         {
             return $this->mysqli->error;

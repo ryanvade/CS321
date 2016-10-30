@@ -1,10 +1,3 @@
-/**
-* Created by PhpStorm.
-* User: ryan owens
-* Date: 10/28/2016
-* Time: 8:14 PM
-*/
-
 <?php
     require './inc/db.php';
 
@@ -17,6 +10,9 @@
     require './inc/views/HomePage.php';
     require './inc/views/LoginPage.php';
     require './inc/views/RegisterPage.php';
+
+    require './inc/controllers/RegisterUser.php';
+    require './inc/controllers/LoginUser.php';
 
 	function getCurrentUri()
 	{
@@ -40,17 +36,36 @@
     $user = null;
     $order = null;
     $page = null;
+    $db = new db();
  
 if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     switch ($routes[1]){
         case 'login':
-            echo 'Login with : ';
-            print_r($_POST);
+            $login = new LoginUser($_POST['username'], $_POST['password'], $db);
+            $user = $login->action();
+            if($user == null)
+            {
+                redirect('./login');
+            }else
+            {
+                setcookie('user_id', $user->id(), time() + (86400 * 30), "/");
+                redirect('./index');
+            }
             break;
         case 'register':
-            echo 'Register with: ';
-            print_r($_POST);
+            if($_POST['password'] == $_POST['confirmPassword'])
+            {
+                $register = new RegisterUser($db, $_POST['username'], $_POST['email'], $_POST['password']);
+                $user = $register->action();
+                setcookie('user_id', $user->id(), time() + (86400 * 30), "/");
+                echo $user->id();
+                redirect('./index');
+            }else
+            {
+                redirect('./login');
+            }
+
             break;
         case 'addInvitation':
             echo 'Add Invitation with: ';
@@ -66,21 +81,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 }else
 {
-    if(session_status() == PHP_SESSION_NONE)
-    {
-        session_start();
-    }else
-    {
-        if(isset($_SESSION['user_id']))
+        if(isset($_COOKIE['user_id']))
         {
-            $user = new User($db = $database, $id = $_SESSION['user_id']);
+            $user = new User($_COOKIE['user_id'], null, null, null, $db);
         }
 
-        if(isset($_SESSION['order']) && isset($_SESSION['order']['id']))
+        if(isset($_COOKIE['order_id']))
         {
-            $order = new Order($_SESSION['order']['id']);
+            $order = new Order($_COOKIE['order_id'], $db);
         }
-    }
+
 
 	switch($routes[1]){
         case '': // /
@@ -89,13 +99,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             echo $page->view();
             break;
         case 'login':
-            if($user == null)
+            if(!isset($_COOKIE['user_id']))
             {
                 $page = new LoginPage();
                 echo $page->view();
             }else
             {
               redirect('./index');
+            }
+            break;
+        case 'logout':
+            if(isset($_COOKIE['user_id']))
+            {
+                $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+                foreach($cookies as $cookie) {
+                    $parts = explode('=', $cookie);
+                    $name = trim($parts[0]);
+                    setcookie($name, '', time()-1000);
+                    setcookie($name, '', time()-1000, '/');
+                }
+                redirect('./index');
+            }else{
+                redirect('./index');
             }
             break;
         case 'register':

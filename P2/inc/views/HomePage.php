@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: ryan owens
- * Date: 10/29/2016
- * Time: 10:43 AM
- */
 class HomePage
 {
     private $user;

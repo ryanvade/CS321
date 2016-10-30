@@ -3,7 +3,7 @@
 var copyright= {
 		copy: "\u00A9 ",
 		year: new Date().getFullYear(),
-		name: "&#169 2016 Hallmark Cards, LLC."
+		name: " Photo-Swap . All rights reserved.",
 };
 
 var pageInfo= {
