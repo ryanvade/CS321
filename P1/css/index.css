@@ -1,5 +1,5 @@
 /* css_index.css */
-/*-------------------------index.html------------------------------------*/
+
 
 .siteText {
 	color: red;
@@ -141,7 +141,7 @@ input {
 	margin: 0 auto;
 }
 
-/*----------------------------------OrderConfirmation.html------------------------------*/
+/*----------------------------------OrderComfirmation.html------------------------------*/
 
 h1.thanks{
 	text-align: center;
@@ -241,38 +241,28 @@ input.fontsize {
     font-size: 46px;
 }
 
-/*-------------------- help.html -----------------------*/
-div.help{
+
+/*--------------------------- trackOrdersData -------------------------------*/
+
+.trackTable {
+    border-collapse: collapse;
+    width: 100%;
 	margin-left: auto;
-	margin-right: auto;
-	border: double #613790;
-	color: #613790;
-	width: 50%;
-}
-p.help{
-	text-align: center;
-	color: #613790;
+    margin-right: auto;
 }
 
-h1.help{
-	text-align: center;
-	color: #613790;
-}
-h2.help{
-	text-align: center;
-	color: #613790;
-}
-ul.help{
-
-	color: #613790;
+th, td {
+    text-align: left;
+    padding: 8px;
+	    margin-left: auto;
+    margin-right: auto;
 }
 
-li.help{
+tr:nth-child(even){background-color: #f2f2f2}
 
-	color: #613790;
+th {
+    background-color: #613790;
+    color: white;
 }
 
-h3.help{
-	text-align: center;
-	color: #613790;
-}
+
