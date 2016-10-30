@@ -141,7 +141,7 @@ input {
 	margin: 0 auto;
 }
 
-/*----------------------------------OrderComfirmation.html------------------------------*/
+/*----------------------------------OrderConfirmation.html------------------------------*/
 
 h1.thanks{
 	text-align: center;
@@ -239,4 +239,40 @@ input.fontsize {
 
 #cardtitle {
     font-size: 46px;
+}
+
+/*-------------------- help.html -----------------------*/
+div.help{
+	margin-left: auto;
+	margin-right: auto;
+	border: double #613790;
+	color: #613790;
+	width: 50%;
+}
+p.help{
+	text-align: center;
+	color: #613790;
+}
+
+h1.help{
+	text-align: center;
+	color: #613790;
+}
+h2.help{
+	text-align: center;
+	color: #613790;
+}
+ul.help{
+
+	color: #613790;
+}
+
+li.help{
+
+	color: #613790;
+}
+
+h3.help{
+	text-align: center;
+	color: #613790;
 }
