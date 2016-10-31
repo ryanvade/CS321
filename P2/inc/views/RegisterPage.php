@@ -33,7 +33,7 @@ class RegisterPage
 			<h1 class="loginH1">Create New Account</h1>
 			<form action="./register" method="POST">
 				<div class = "siteText">
-					<input name="username" type = "text" id = "username" placeholder="Username"/>
+					<input name="username" type = "text" id = "username" placeholder="Username" autofocus/>
 				</div>
 				<div class = "siteText" >
 					<input name="email" type = "email" id = "email"  placeholder="Email"/>
@@ -51,7 +51,7 @@ class RegisterPage
 					<label id = "commentConfirmPassword"></label>
 				</div>
 				<p>
-					<button type="submit">Submit</button>
+					<button style="cursor:pointer" type="submit">Submit</button>
 				</p>
 			</form>
 	</div>
