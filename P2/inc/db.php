@@ -292,7 +292,8 @@ class db
       $this->insert('templates', ['image_location'], ['images/misc/misc1.png']);
       $this->insert('templates', ['image_location'], ['images/misc/misc2.jpg']);
       $this->insert('templates', ['image_location'], ['images/misc/misc3.jpg']);
-      $this->insert('templates', ['image_location'], ['images/misc/misc4.jpg']);
+      $this->insert('templates', ['image_location'], ['images/custom.png']);
+      $this->insert('templates', ['image_location'], ['images/misc4.jpg']);
       $this->insert('templates', ['image_location'], ['images/misc/misc5.jpg']);
       $this->insert('templates', ['image_location'], ['images/misc/misc6.png']);
       $this->insert('templates', ['image_location'], ['images/misc/misc7.jpg']);
