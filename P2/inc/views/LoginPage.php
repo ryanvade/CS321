@@ -40,7 +40,7 @@ class LoginPage
 				<label id = "commentPassword"></label>
 			</div>
 			<p>
-				<button value = "Login" type = "submit">Login</button>
+				<span style="cursor:pointer"><button value = "Login" type = "submit">Login</button></span>
 			</p>
 			</form>
 			<p>
