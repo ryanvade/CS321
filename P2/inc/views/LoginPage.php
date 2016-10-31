@@ -31,7 +31,7 @@ class LoginPage
 			<form action="./login" method="POST">
 			<h1 class="loginH1" id = "welcome"></h1>
 			<h1 class="loginH1">Please sign in to your account.</h1>
-			<input type = "text"  name = "username" placeholder="Username"/>
+			<input type = "text"  name = "username" placeholder="Username" autofocus/>
 			<div class = "siteText" id = "unanswer">
 				<label id = "commentName"></label>
 			</div>
@@ -40,7 +40,7 @@ class LoginPage
 				<label id = "commentPassword"></label>
 			</div>
 			<p>
-				<button value = "Login" type = "submit">Login</button>
+				<button style="cursor:pointer" value = "Login" type = "submit">Login</button>
 			</p>
 			</form>
 			<p>
