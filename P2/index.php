@@ -11,6 +11,7 @@
     require './inc/views/LoginPage.php';
     require './inc/views/RegisterPage.php';
     require './inc/views/TemplatePage.php';
+    require './inc/views/HelpPage.php';
 
     require './inc/controllers/RegisterUser.php';
     require './inc/controllers/LoginUser.php';
@@ -149,13 +150,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
             break;
         case 'order':
-            echo 'order page';
+            if($user == null)
+            {
+              redirect("./login");
+            }else {
+              if($order == null)
+              {
+                $order = new Order(null, $db, $user);
+              }
+              echo 'order page';
+            }
+            break;
+        case 'order-confirm':
+            echo 'confirm-order';
             break;
         case 'tracking':
             echo 'order tracking page';
             break;
         case 'help':
-          echo 'help page';
+          $page = new HelpPage($user);
+          echo $page->view();
           break;
         default:
             echo '404';

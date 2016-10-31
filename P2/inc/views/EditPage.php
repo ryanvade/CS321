@@ -15,6 +15,7 @@
 
    public function view()
    {
-
+     $view = '';
+     return $view;
    }
  }
