@@ -10,9 +10,11 @@
     require './inc/views/HomePage.php';
     require './inc/views/LoginPage.php';
     require './inc/views/RegisterPage.php';
+    require './inc/views/TemplatePage.php';
 
     require './inc/controllers/RegisterUser.php';
     require './inc/controllers/LoginUser.php';
+
 
 	function getCurrentUri()
 	{
@@ -28,7 +30,7 @@
         header('Location: ' . $url, true, $statusCode);
         die();
     }
- 
+
 	$base_url = getCurrentUri();
 	$routes = array();
 	$routes = explode('/', $base_url);
@@ -37,7 +39,7 @@
     $order = null;
     $page = null;
     $db = new db();
- 
+
 if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     switch ($routes[1]){
@@ -134,25 +136,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
             break;
         case 'templates':
-            if(isset($routes[2])) {
-                switch($routes[2]){
-                    case 'wedding':
-                        echo 'wedding template page';
-                        break;
-                    case 'birthday_party':
-                        echo 'birthday party template page';
-                        break;
-                    case 'generic':
-                        echo 'generic template page';
-                        break;
-                    default:
-                        echo '404';
-                        break;
-                }
-            }else
-            {
-                echo 'templates page';
-            }
+            $page = new TemplatePage($user);
+            echo $page->view();
             break;
         case 'edit':
             if(isset($routes[2]) && is_numeric($routes[2]))
@@ -166,9 +151,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         case 'order':
             echo 'order page';
             break;
-        case 'order_tracking':
+        case 'tracking':
             echo 'order tracking page';
             break;
+        case 'help':
+          echo 'help page';
+          break;
         default:
             echo '404';
             break;

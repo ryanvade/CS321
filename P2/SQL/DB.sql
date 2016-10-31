@@ -15,7 +15,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `cs321`
 --
-
+CREATE DATABASE IF NOT EXISTS cs321;
+use cs321;
 -- --------------------------------------------------------
 
 --
@@ -59,17 +60,17 @@ CREATE TABLE `orders` (
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `sessions`
---
-
-CREATE TABLE `sessions` (
-  `id` int(11) NOT NULL,
-  `session` varchar(255) NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+# --
+# -- Table structure for table `sessions`
+# --
+#
+# CREATE TABLE `sessions` (
+#   `id` int(11) NOT NULL,
+#   `session` varchar(255) NOT NULL,
+#   `user_id` int(11) NOT NULL
+# ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+#
+# -- --------------------------------------------------------
 
 --
 -- Table structure for table `templates`

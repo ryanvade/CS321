@@ -26,45 +26,51 @@ class HomePage
         if($this->user == null)
         {
             $view .= '<div class="nav">
-			<ul class="outer-nav-ul">
-				<li><a href="/">Home</a></li>
-				<ul class="inner-nav-ul">
-					<li><a href="./register">Register</a></li>
-					<li><a href="./login">Log In</a></li>
-				</ul>
-			</ul>
-		</div>';
+        			<ul class="outer-nav-ul">
+        				<li><a href="./index">Home</a></li>
+        				<ul class="inner-nav-ul">
+        					<li><a href="./register">Create Account</a></li>
+        					<li><a href ="./tracking">Track Orders</a></li>
+        					<li><a href="./templates">Templates</a></li>
+        					<li><a href="./login">Log In</a></li>
+
+        				</ul>
+        			</ul>
+        		</div>';
         }else
         {
             $view .= '<div class="nav">
-			<ul class="outer-nav-ul">
-				<li><a href="./">Home</a></li>
-				<ul class="inner-nav-ul">
-					<li>' . $this->user->name() . '</li>
-				</ul>
-			</ul>
-		</div>';
+        			<ul class="outer-nav-ul">
+        				<li><a href="index.html">Home</a></li>
+        				<ul class="inner-nav-ul">
+                  <li><a href="./templates">Templates</a></li>
+                  <li><a href="./help">Help</a></li>
+        					<li><a href="./logout">Logout</a></li>
+        					<li><a href ="#">' . $this->user->name() . '</a></li>
+        				</ul>
+        			</ul>
+        		</div>';
         }
 	$view .='</header>
 
 	<form>
 			<div class="logo" id= "logo">
-				<img  align="middle" src="images/homepageBanner.png">
-				<h1 class="loginH1" align="middle">Free shipping on purchases of $50 or more</h1>
+				<h1 class="loginH1" align="middle">About Hallmark</h1>
 				<hr>
-				<h1 class="loginH1" align="middle">Invitation Templates</h1>
+        <p id = "helloPar">
+        No one does special occasions like Hallmark.
 
-				<table id = "tablePage"><tr>
-				<td><img id= "tableimg" src ="images/templates/temp1.jpg"></td>
-				<td><img id= "tableimg" src ="images/templates/temp2.jpg"></td>
-				<td><img id= "tableimg" src ="images/templates/temp3.jpg"></td>
-				</tr></table>
+        Hallmark has been your family-owned creator of invitations and more for over 100 years. We take deep pride in helping individuals connect in just the right way.
 
-				<table id = "tablePage"><tr>
-				<td><img id= "tableimg" src ="images/templates/temp4.jpg"></td>
-				<td><img id= "tableimg" src ="images/templates/temp5.jpg"></td>
-				<td><img id= "tableimg" src ="images/templates/temp6.jpg"></td>
-				</tr></table>
+        Our Hallmark invitations, available in a variety of aesthetic styles and tones, help you share your sentiments in a way that fits your unique relationships.
+
+        Whatever the occasion, our gift offerings are diverse, unique and sure to have something for your situation.
+
+        We feature special debuts, premiers and announcements throughout the year to help you stay up-to-date on these beautifully crafted, collector-quality invitations.
+
+        Thank you for visiting!
+
+        </p>
 			</div>
 	</form>
 
@@ -72,7 +78,7 @@ class HomePage
 		<hr>
 		<p id="footerP"> &#169 2016 Hallmark Cards, LLC.</p>
 	</footer>
-	
+
 </body>
 </html>
 ';
