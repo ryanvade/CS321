@@ -15,12 +15,27 @@ class db
         $this->db_database_name = $ini_array['DB']['database'];
         $this->db_server = $ini_array['DB']['server'];
 
-        $this->mysqli = mysqli_connect($this->db_server, $this->db_username, $this->db_password, $this->db_database_name);
+        $this->mysqli = mysqli_connect($this->db_server, $this->db_username, $this->db_password);
         if(mysqli_connect_errno())
         {
             echo 'username = ' . $this->db_username . ' password = ' . $this->db_password . ' database = ';
             echo $this->db_database_name . ' server = ' . $this->db_server;
             die();
+        }
+        if(!$this->databaseExists())
+        {
+          $this->createDatabase();
+          $this->populateDatabase();
+        }else {
+          $this->mysqli->close();
+          $this->mysqli = mysqli_connect($this->db_server, $this->db_username, $this->db_password, $this->db_database_name);
+
+          if(mysqli_connect_errno())
+          {
+              echo 'username = ' . $this->db_username . ' password = ' . $this->db_password . ' database = ';
+              echo $this->db_database_name . ' server = ' . $this->db_server;
+              die();
+          }
         }
 
     }
@@ -86,8 +101,166 @@ class db
         }
     }
 
+    public function updateRow($table, $columns, $values, $colWhere, $colValue)
+    {
+      $query = 'UPDATE ' . $table  . ' WHERE';
+      for($i = 0; $i < count($columns) - 1; $i++)
+      {
+        $query .= "SET '" . $columns[$i] . "' = '" . $values[$i] . "',";
+      }
+      $query .= "SET '" . $columns[count($columns) - 1] . "' = '" . $values[count($columns) - 1] . "' ";
+
+      for($j = 0; $j < count($colWhere) - 1; $j++)
+      {
+        $query .= "WHERE '" . $colWhere[$j] . "' = '" . $colValue[$j] . "'";
+      }
+      $query .= "WHERE '" . $colWhere[count($colWhere) - 1] . "' = '" . $colValue[count($colWhere) - 1] . "'";
+      $result = $this->mysqli->query($query);
+
+      return $this->mysqli->error;
+    }
+
     public function close()
     {
         return $this->mysqli->close();
+    }
+
+    public function databaseExists()
+    {
+      $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $this->$db_database_name ."'";
+      $result = $this->mysqli->query($query);
+      if($result->num_rows)
+      {
+        return true;
+      }else {
+        return false;
+      }
+    }
+
+    public function createDatabase()
+    {
+      $query = "CREATE DATABASE IF NOT EXISTS " . $this->$db_database_name;
+      $result = $this->mysqli->query($query);
+
+      $this->mysqli->close();
+      $this->mysqli = mysqli_connect($this->db_server, $this->db_username, $this->db_password, $this->db_database_name);
+
+      $query = "CREATE TABLE `images` (
+        `id` int(11) NOT NULL,
+        `invitation_id` int(11) NOT NULL,
+        `image_location` varchar(150) NOT NULL
+      ) ENGINE=I"nnoDB DEFAULT CHARSET=latin1;";
+      $this->mysqli->query($query);
+
+      $query = "CREATE TABLE `invitations` (
+        `id` int(11) NOT NULL,
+        `user_id` int(11) NOT NULL,
+        `template_id` int(11) NOT NULL,
+        `order_id` int(11) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+      $this->mysqli->query($query);
+
+      $query = "CREATE TABLE `orders` (
+        `id` int(11) NOT NULL,
+        `cost` int(11) NOT NULL DEFAULT '0',
+        `address` varchar(255) DEFAULT NULL,
+        `city` varchar(150) DEFAULT NULL,
+        `zipcode` int(11) DEFAULT NULL,
+        `state` varchar(100) DEFAULT NULL,
+        `user_id` int(11) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+      $this->mysqli->query($query);
+
+      $query = "CREATE TABLE `templates` (
+        `id` int(11) NOT NULL,
+        `image_location` varchar(255) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+      $this->mysqli->query($query);
+
+      $query = "CREATE TABLE `users` (
+        `id` int(11) NOT NULL,
+        `name` varchar(64) NOT NULL,
+        `email` varchar(320) NOT NULL,
+        `password` varchar(255) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `images`
+        ADD PRIMARY KEY (`id`),
+        ADD UNIQUE KEY `images_id_uindex` (`id`),
+        ADD KEY `images_invitations_id_fk` (`invitation_id`);";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `invitations`
+          ADD PRIMARY KEY (`id`),
+          ADD UNIQUE KEY `invitations_id_uindex` (`id`),
+          ADD KEY `invitations_templates_id_fk` (`template_id`),
+          ADD KEY `invitations_orders_id_fk` (`order_id`),
+          ADD KEY `invitations_user_id_fk` (`user_id`);";
+      $this->mysqli->query($query);
+
+      $query ="ALTER TABLE `orders`
+            ADD PRIMARY KEY (`id`),
+            ADD UNIQUE KEY `orders_id_uindex` (`id`),
+            ADD UNIQUE KEY `orders_cost_uindex` (`cost`),
+            ADD UNIQUE KEY `orders_user_id_uindex` (`user_id`);";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `sessions`
+            ADD PRIMARY KEY (`id`),
+            ADD UNIQUE KEY `sessions_id_uindex` (`id`),
+            ADD UNIQUE KEY `sessions_session_uindex` (`session`),
+            ADD KEY `sessions_user_id_fk` (`user_id`);";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `templates`
+              ADD PRIMARY KEY (`id`),
+              ADD UNIQUE KEY `templates_id_uindex` (`id`);";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `users`
+              ADD PRIMARY KEY (`id`),
+              ADD UNIQUE KEY `user_id_uindex` (`id`),
+              ADD UNIQUE KEY `user_name_uindex` (`name`),
+              ADD UNIQUE KEY `user_email_uindex` (`email`);";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `images` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `invitations` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `orders` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `sessions` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `templates` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `users` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `images` ADD CONSTRAINT `images_invitations_id_fk` FOREIGN KEY (`invitation_id`) REFERENCES `invitations` (`id`);";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `invitations` ADD CONSTRAINT `invitations_orders_id_fk` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+                              ADD CONSTRAINT `invitations_templates_id_fk` FOREIGN KEY (`template_id`) REFERENCES `templates` (`id`),
+                              ADD CONSTRAINT `invitations_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);";
+      $this->mysqli->query($query);
+
+      $query = "ALTER TABLE `orders` ADD CONSTRAINT `orders_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);";
+      $this->mysqli->query($query);
+
+
+      $query = "ALTER TABLE `sessions` ADD CONSTRAINT `sessions_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);";
+      $this->mysqli->query($query);
+    }
+
+    public function populateDatabase()
+    {
+
     }
 }

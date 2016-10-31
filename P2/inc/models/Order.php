@@ -50,7 +50,7 @@ class Order
   public function setCost($cost)
   {
     $this->cost = $cost;
-    $this->db->updateRow($this->table, ['cost'], [$cost]);
+    $this->db->updateRow($this->table, ['cost'], [$cost], ['id'], [$this->id]);
   }
 
   public function address()
@@ -61,7 +61,39 @@ class Order
   public function setAddress($address)
   {
     $this->address = $address;
-    $this->db->updateRow($this->table, ['address'], [$address]);
+    $this->db->updateRow($this->table, ['address'], [$address], ['id'], [$this->id]);
   }
 
+  public function city()
+  {
+    return $this->city;
+  }
+
+  public function setCity($city)
+  {
+    $this->city = $city;
+    $this->db->updateRow($this->table, ['city'], [$city], ['id'], [$this->id]);
+  }
+
+  public function state()
+  {
+    return $this->state;
+  }
+
+  public function setState($state)
+  {
+    $this->state = $state;
+    $this->db->updateRow($this->table, ['state'], [$state], ['id'], [$this->id]);
+  }
+
+  public function trackingNumber()
+  {
+    return $this->tracking_number;
+  }
+
+  public function setTrackingNumber($tracking_number)
+  {
+    $this->tracking_number = $tracking_number;
+    $this->db->updateRow($this->table, ['tracking_number'], [$tracking_number], ['id'], [$this->id]);
+  }
 }
