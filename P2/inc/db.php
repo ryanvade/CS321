@@ -127,7 +127,7 @@ class db
 
     public function databaseExists()
     {
-      $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $this->$db_database_name ."'";
+      $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $this->db_database_name ."'";
       $result = $this->mysqli->query($query);
       if($result->num_rows)
       {
@@ -139,7 +139,7 @@ class db
 
     public function createDatabase()
     {
-      $query = "CREATE DATABASE IF NOT EXISTS " . $this->$db_database_name;
+      $query = "CREATE DATABASE IF NOT EXISTS " . $this->db_database_name;
       $result = $this->mysqli->query($query);
 
       $this->mysqli->close();
@@ -149,7 +149,7 @@ class db
         `id` int(11) NOT NULL,
         `invitation_id` int(11) NOT NULL,
         `image_location` varchar(150) NOT NULL
-      ) ENGINE=I"nnoDB DEFAULT CHARSET=latin1;";
+      ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
       $this->mysqli->query($query);
 
       $query = "CREATE TABLE `invitations` (
@@ -261,6 +261,44 @@ class db
 
     public function populateDatabase()
     {
-
+      // Birthday
+      $this->insert('templates', ['image_location'], ['images/birthday/birthday1.jpg']);
+      $this->insert('templates', ['image_location'], ['images/birthday/birthday2.gif']);
+      $this->insert('templates', ['image_location'], ['images/birthday/birthday3.jpg']);
+      $this->insert('templates', ['image_location'], ['images/birthday/birthday5.jpg']);
+      $this->insert('templates', ['image_location'], ['images/birthday/birthday6.jpg']);
+      $this->insert('templates', ['image_location'], ['images/birthday/birthday7.jpg']);
+      // Holiday
+      $this->insert('templates', ['image_location'], ['images/holiday/holiday1.jpg']);
+      $this->insert('templates', ['image_location'], ['images/holiday/holiday2.jpg']);
+      // Kids
+      $this->insert('templates', ['image_location'], ['images/kids/kids1.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids2.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids3.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids4.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids5.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids6.png']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids7.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids8.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids9.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids10.gif']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids11.jpg']);
+      $this->insert('templates', ['image_location'], ['images/kids/kids12.jpg']);
+      // Wedding
+      $this->insert('templates', ['image_location'], ['images/wedding/wedding1.jpg']);
+      $this->insert('templates', ['image_location'], ['images/wedding/wedding2.jpg']);
+      $this->insert('templates', ['image_location'], ['images/wedding/wedding3.jpg']);
+      // misc
+      $this->insert('templates', ['image_location'], ['images/misc/misc1.png']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc2.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc3.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc4.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc5.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc6.png']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc7.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc8.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc9.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc10.jpg']);
+      $this->insert('templates', ['image_location'], ['images/misc/misc11.jpg']);
     }
 }
