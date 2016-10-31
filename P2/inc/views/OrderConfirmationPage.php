@@ -2,9 +2,11 @@
 
 class OrderConfirmationPage {
     private $user;
-    public function __construct($user)
+    private $order;
+    public function __construct($user, $order)
     {
         $this->user = $user;
+        $this->order = $order;
     }
 
     public function view()
@@ -57,7 +59,7 @@ class OrderConfirmationPage {
         <br>
         <li class = "thanks" id="listOne"> Confirmation Number:</li>
         <br>
-        <li class = "thank_you" id="listTwo">2C46LS2</li>
+        <li class = "thank_you" id="listTwo">' . $this->order->trackingNumber() .'</li>
         <br>
         <li id="listThree">Thanks!</li>
     </ul>
@@ -67,8 +69,8 @@ class OrderConfirmationPage {
 <footer id="footer" style="text-align: center">
     <hr>
     <p id="footerP"> &#169 2016 Hallmark Cards, LLC.</p>
-    <script src="../js/site.js"></script>
-    <script src="../js/orderConfirmation.js"></script>
+    <script src=js/site.js"></script>
+    <script src="js/orderConfirmation.js"></script>
 </footer>
     </html>';
         return $view;
