@@ -111,7 +111,7 @@
                   <div id="editorArea">';
 
                   //TEMP
-                  $view .= '<img class="template" id="template" alt="" title="Click to outside of a text box to enable dragging" src=../"'.$this->template->imageLocation().'" width="525" height="720">';
+                  $view .= '<img class="template" id="template" alt="" title="Click to outside of a text box to enable dragging" src="../'.$this->template->imageLocation().'" width="525" height="720">';
 
                   $view .= '
                       </div>
