@@ -94,7 +94,7 @@ function placeBox(e) {
             "position": "absolute",                    
             "left": x,
             "top": y,
-            "font-family": getFont(),
+            //"font-family": getFont(),
             "font-size": getFontSize()+"px",
             "text-align": getAlignment(),
             "font-weight": getBold(),

@@ -4,13 +4,13 @@
 
    private $db;
    private $user;
-   private $order;
+   private $template;
 
-   public function __construct($db, $user, $order)
+   public function __construct($db, $user, $template)
    {
      $this->db = $db;
      $this->user = $user;
-     $this->order = $order;
+     $this->template = $template;
    }
 
    public function view()
@@ -20,22 +20,22 @@
         <html>
         <head>
         <title>Hallmark Cards</title>
-        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="../css/index.css" />
         </head>
 
         <body>
                 <header>
-                <img src ="images/hallmarkCardsLogo.png">';
+                <img src ="../images/hallmarkCardsLogo.png">';
     if($this->user == null)
     {
         $view .= '<div class="nav">
           <ul class="outer-nav-ul">
-            <li><a href="./index">Home</a></li>
+            <li><a href="../index">Home</a></li>
             <ul class="inner-nav-ul">
-              <li><a href="./register">Create Account</a></li>
-              <li><a href ="./tracking">Track Orders</a></li>
-              <li><a href="./templates">Templates</a></li>
-              <li><a href="./login">Log In</a></li>
+              <li><a href="../register">Create Account</a></li>
+              <li><a href ="../tracking">Track Orders</a></li>
+              <li><a href="../templates">Templates</a></li>
+              <li><a href="../login">Log In</a></li>
 
             </ul>
           </ul>
@@ -46,15 +46,16 @@
               <ul class="outer-nav-ul">
                 <li><a href="index.html">Home</a></li>
                 <ul class="inner-nav-ul">
-                  <li><a href="./templates">Templates</a></li>
-                  <li><a href="./help">Help</a></li>
-                  <li><a href="./logout">Logout</a></li>
+                  <li><a href="../templates">Templates</a></li>
+                  <li><a href="../help">Help</a></li>
+                  <li><a href="../logout">Logout</a></li>
                   <li><a href ="#">' . $this->user->name() . '</a></li>
                 </ul>
               </ul>
             </div>';
         }
       $view .='
+          </header>
           <div class="log">
           <div id="editorGUI">
               <div id="editorButtonArea">
@@ -71,21 +72,21 @@
                   <span>
                       <button id="newbox">New Text Box</button>
                       <button id="deletebox">Delete Selected Box</button>
-                      Preview:<input id="showborders" type="checkbox">
+                      <label>Preview:<input id="showborders" type="checkbox"></label>
                   </span>
                   </div>
                   <span>
                     <select id="fontselect">
                         <option disabled>Font Selection</option>
                         <option disabled>--------------</option>
-                        <option>Arial Black</option>
+                        <option>Arial</option>
                         <option>Calibri</option>
                         <option>Times New Roman</option>
                     </select>
                     <input id="fontsize" type="number" min=1 max=100 value=14>
-                    Bold:<input type="checkbox" id="bold">
-                    Italic:<input type="checkbox" id="italic">
-                    Underline:<input type="checkbox" id="underline">
+                    <label>Bold:<input type="checkbox" id="bold"></label>
+                    <label>Italic:<input type="checkbox" id="italic"></label>
+                    <label>Underline:<input type="checkbox" id="underline"></label>
                     <select id="alignment">
                         <option disabled>Text Alignment</option>
                         <option disabled>--------------</option>
@@ -97,7 +98,7 @@
                   <div id="editorArea">';
 
                   //TEMP
-                  $view .= '<img class="template" id="template" title="Click to outside of a text box to enable dragging" src="images/misc/misc1.png" width="525" height="720">';
+                  $view .= '<img class="template" id="template" alt="" title="Click to outside of a text box to enable dragging" src=../"'.$this->template->imageLocation().'" width="525" height="720">';
 
                   $view .= '
                       </div>
@@ -116,10 +117,10 @@
                     <footer id="footer" style="text-align: center">
                         <hr>
                         <p id="footerP"> &#169 2016 Hallmark Cards, LLC.</p>
-                        <script src="./js/site.js"></script>
+                        <script src="../js/site.js"></script>
                         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-                        <script src="./js/EditPage.js"></script>
+                        <script src="../js/EditPage.js"></script>
                     </footer>
               </body>
               </html>

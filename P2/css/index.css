@@ -275,7 +275,8 @@ button.editorButton {
 
 textarea.editBox {
     background: transparent;
-    //font-family: Arial Black, Gadget, sans-serif;
+    font-family: Arial, Gadget, sans-serif;
+    font-weight: normal;
     border-style: dotted;
     width: auto;
     //font-size: 24px;
@@ -304,4 +305,8 @@ img.template {
 
 #fontsize {
     width: 35px;
+}
+
+#editorGUI {
+    font-family: Arial, Gadget, sans-serif;
 }
