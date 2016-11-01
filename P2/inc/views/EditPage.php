@@ -120,8 +120,8 @@
 
               <div>
                   <span>
-                      <a href="newIndex.html"><button type="button">Cancel</button></a>
-                      <a href="paymentAndShipping.html"><button type="button">Continue to Payment</button></a>
+                      <a href="../index"><button type="button">Cancel</button></a>
+                      <a href="../order"><button type="button">Continue to Payment</button></a>
                   </span>
 
               </div>
