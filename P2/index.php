@@ -13,6 +13,8 @@
     require './inc/views/RegisterPage.php';
     require './inc/views/TemplatePage.php';
     require './inc/views/HelpPage.php';
+    require './inc/views/OrderConfirmationPage.php';
+    require './inc/views/TrackOrdersPage.php';
 
     require './inc/controllers/RegisterUser.php';
     require './inc/controllers/LoginUser.php';
@@ -165,10 +167,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
             break;
         case 'order-confirm':
-            echo 'confirm-order';
+            $page = new OrderConfirmationPage($user, $order);
+            echo $page->view();
             break;
         case 'tracking':
-            echo 'order tracking page';
+            $page = new TrackOrdersPage($user, $order);
+            echo $page ->view();
             break;
         case 'help':
           $page = new HelpPage($user);
