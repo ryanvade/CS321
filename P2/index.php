@@ -7,6 +7,7 @@
     require './inc/models/Invitation.php';
     require './inc/models/Template.php';
 
+    require './inc/views/EditPage.php';
     require './inc/views/HomePage.php';
     require './inc/views/LoginPage.php';
     require './inc/views/RegisterPage.php';
@@ -143,10 +144,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         case 'edit':
             if(isset($routes[2]) && is_numeric($routes[2]))
             {
-                echo 'editing template ' . $routes[2];
+                $page = new EditPage($db, $user, $routes[2]);
+                echo $page->view();
             }else
             {
-                echo 'edit page';
+                redirect('./index');
             }
             break;
         case 'order':

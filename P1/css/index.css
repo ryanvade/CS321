@@ -251,6 +251,71 @@ input.fontsize {
     font-size: 46px;
 }
 
+button.editorButton {
+    width: 100px;
+    height: 100px;
+}
+
+#editorGUI {
+    overflow: hidden;
+    position: relative;
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#editorButtonArea {
+    position: relative;
+    width: 25%;
+    float: left;
+    font-size: 20px;
+}
+
+#buttonTable {
+    position: relative;
+    float: right;
+}
+
+#editorArea {
+    position: relative;
+    float: left;
+    width: 75%;
+    //cursor: crosshair;
+}
+
+textarea.editBox {
+    background: transparent;
+    //font-family: Arial Black, Gadget, sans-serif;
+    border-style: dotted;
+    width: auto;
+    //font-size: 24px;
+    resize: both;
+    min-width: 5%;
+    min-height: 5%;
+    max-width: 525px;
+    max-height: 700px;
+    cursor: move;
+    outline: none;
+    overflow: hidden;
+}
+
+textarea.glowingBox {
+    border-color: blue;
+    box-shadow: 0 0 10px blue;
+    cursor: text;
+}
+
+img.template {
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    border: 3px dashed black;
+}
+
+#fontsize {
+    width: 35px;
+}
+
 
 /*--------------------------- trackOrdersData -------------------------------*/
 
