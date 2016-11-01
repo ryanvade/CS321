@@ -95,10 +95,10 @@
                     </select>
                   </span>
                   <div id="editorArea">';
-                  
+
                   //TEMP
                   $view .= '<img class="template" id="template" title="Click to outside of a text box to enable dragging" src="images/misc/misc1.png" width="525" height="720">';
-                  
+
                   $view .= '
                       </div>
                   </div>
@@ -116,10 +116,10 @@
                     <footer id="footer" style="text-align: center">
                         <hr>
                         <p id="footerP"> &#169 2016 Hallmark Cards, LLC.</p>
-                        <script src="js/site.js"></script>
+                        <script src="./js/site.js"></script>
                         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-                        <script src="js/EditPage.js"></script>
+                        <script src="./js/EditPage.js"></script>
                     </footer>
               </body>
               </html>

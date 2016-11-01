@@ -144,7 +144,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         case 'edit':
             if(isset($routes[2]) && is_numeric($routes[2]))
             {
-                $page = new EditPage($db, $user, $routes[2]);
+                $template = new Template($db, $routes[2]);
+                $page = new EditPage($db, $user, $template);
                 echo $page->view();
             }else
             {
