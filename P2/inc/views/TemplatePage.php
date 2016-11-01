@@ -40,7 +40,7 @@ class TemplatePage {
     {
         $view .= '<div class="nav">
           <ul class="outer-nav-ul">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="./index">Home</a></li>
             <ul class="inner-nav-ul">
               <li><a href="./templates">Templates</a></li>
               <li><a href="./help">Help</a></li>
