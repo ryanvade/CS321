@@ -54,7 +54,12 @@ class HomePage
 	$view .='</header>
 
 	<form>
-			<div class="logo" id= "logo">
+		<div id= "logo" style = "width:1200px;margin:0 auto">
+			<img  align="middle" src="images/homepageBanner.png"
+				style="width: 1200px; height: 400px;">
+	
+				<h1 class="loginH1" align="middle" style = "padding-bottom: 50px;">Free shipping on purchases of $50 or more</h1>
+				<br>
 				<h1 class="loginH1" align="middle">About Hallmark</h1>
 				<hr>
         <p id = "helloPar">
