@@ -52,11 +52,25 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             $user = $login->action();
             if($user == null)
             {
+                setcookie('login_page', 'The Credentials you entered are incorrect.', time() + (86400 * 30), "/");
                 redirect('./login');
             }else
             {
+                if(isset($_COOKIE['login_page']))
+                {
+                  setcookie('login_page', '', time()-1000);
+                  setcookie('login_page', '', time()-1000, '/');
+                }
                 setcookie('user_id', $user->id(), time() + (86400 * 30), "/");
-                redirect('./index');
+                if(isset($_COOKIE['redirect']))
+                {
+                  $redirect = $_COOKIE['redirect'];
+                  setcookie('redirect', '', time()-1000);
+                  setcookie('redirect', '', time()-1000, '/');
+                  redirect($redirect);
+                }else {
+                  redirect('./index');
+                }
             }
             break;
         case 'register':
@@ -65,10 +79,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
                 $register = new RegisterUser($db, $_POST['username'], $_POST['email'], $_POST['password']);
                 $user = $register->action();
                 setcookie('user_id', $user->id(), time() + (86400 * 30), "/");
-                echo $user->id();
-                redirect('./index');
+                if(isset($_COOKIE['redirect']))
+                {
+                  $redirect = $_COOKIE['redirect'];
+                  setcookie('redirect', '', time()-1000);
+                  setcookie('redirect', '', time()-1000, '/');
+                  redirect($redirect);
+                }else {
+                  redirect('./index');
+                }
             }else
             {
+                setcookie('login_page', 'The passwords you entered do not match.', time() + (86400 * 30), "/");
                 redirect('./login');
             }
 
@@ -140,6 +162,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
             break;
         case 'templates':
+          if($user == null)
+          {
+            setcookie('login_page', 'You must login to view templates.', time() + (86400 * 30), "/");
+            setcookie('redirect', './templates', time() + (86400 * 30), "/");
+            redirect('./login');
+          }
             $page = new TemplatePage($user);
             echo $page->view();
             break;

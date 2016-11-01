@@ -30,7 +30,14 @@ class LoginPage
 		<div class="log">
 			<form action="./login" method="POST">
 			<h1 class="loginH1" id = "welcome"></h1>
-			<h1 class="loginH1">Please sign in to your account.</h1>
+      ';
+      if(isset($_COOKIE['login_page']))
+      {
+        $view .= '<h2>' . $_COOKIE['login_page'] . '</h2>';
+        setcookie('login_page', '', time()-1000);
+        setcookie('login_page', '', time()-1000, '/');
+      }
+      $view .= '<h1 class="loginH1">Please sign in to your account.</h1>
 			<input type = "text"  name = "username" placeholder="Username" autofocus/>
 			<div class = "siteText" id = "unanswer">
 				<label id = "commentName"></label>
