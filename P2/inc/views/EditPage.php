@@ -97,15 +97,28 @@
                         <option>Wingdings</option>
                     </select>
                     <input id="fontsize" type="number" min=1 max=100 value=14>
-                    <label>Bold:<input type="checkbox" id="bold"></label>
-                    <label>Italic:<input type="checkbox" id="italic"></label>
-                    <label>Underline:<input type="checkbox" id="underline"></label>
+                    <label title="Bold" style="font-weight: bold">B:<input type="checkbox" id="bold"></label>
+                    <label title="Italic" style="font-style: italic">I:<input type="checkbox" id="italic"></label>
+                    <label title="Underline" style="text-decoration: underline">U:<input type="checkbox" id="underline"></label>
                     <select id="alignment">
                         <option disabled>Text Alignment</option>
                         <option disabled>--------------</option>
                         <option>Left</option>
                         <option>Center</option>
                         <option>Right</option>
+                    </select>
+                    <select id="color">
+                        <option disabled>Text Color</option>
+                        <option disabled>--------------</option>
+                        <option>Black</option>
+                        <option>Blue</option>
+                        <option>Green</option>
+                        <option>Orange</option>
+                        <option>Pink</option>
+                        <option>Purple</option>
+                        <option>Red</option>
+                        <option>Yellow</option>
+                        <option>White</option>
                     </select>
                   </span>
                   <div id="editorArea">';
@@ -116,13 +129,14 @@
                   $view .= '
                       </div>
                   </div>
-              </div>
-
-              <div>
                   <span>
                       <a href="../index"><button type="button">Cancel</button></a>
                       <a href="../order"><button type="button">Continue to Payment</button></a>
                   </span>
+              </div>
+
+              <div>
+                  
 
               </div>
 
