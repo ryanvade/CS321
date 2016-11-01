@@ -62,10 +62,8 @@
                   <table id="buttonTable">
                       <tr><td><button class="editorButton">Change template</button></td><td><button class="editorButton">Import image</button></td></tr>
                       <tr><td><button class="editorButton">Undo</button></td><td><button class="editorButton">Redo</button></td></tr>
-                      <tr><td><button class="editorButton">TEST</button></td><td><button class="editorButton">TEST</button></td></tr>
-                      <tr><td><button class="editorButton">TEST</button></td><td><button class="editorButton">TEST</button></td></tr>
-                      <tr><td><button class="editorButton">TEST</button></td><td><button class="editorButton">TEST</button></td></tr>
                   </table>
+                  <button>Add RSVP</button>
               </div>
               <div>
                   <div>
@@ -108,7 +106,7 @@
               <div>
                   <span>
                       <a href="newIndex.html"><button type="button">Cancel</button></a>
-                      <a href="paymentAndShipping.html"><button type="button">Continue</button></a>
+                      <a href="paymentAndShipping.html"><button type="button">Continue to Payment</button></a>
                   </span>
 
               </div>
