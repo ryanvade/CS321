@@ -79,7 +79,22 @@
                         <option disabled>--------------</option>
                         <option>Arial</option>
                         <option>Calibri</option>
+                        <option>Comic Sans</option>
+                        <option>Consolas</option>
+                        <option>Courier New</option>
+                        <option>Freestyle Script</option>
+                        <option>French Script MT</option>
+                        <option>Helvetica</option>
+                        <option>Impact</option>
+                        <option>Juice ITC</option>
+                        <option>Lucida Sans Unicode</option>
+                        <option>Papyrus</option>
+                        <option>Segoe UI</option>
+                        <option>Segoe UI Emoji</option>
+                        <option>Tahoma</option>
                         <option>Times New Roman</option>
+                        <option>Verdana</option>
+                        <option>Wingdings</option>
                     </select>
                     <input id="fontsize" type="number" min=1 max=100 value=14>
                     <label>Bold:<input type="checkbox" id="bold"></label>
