@@ -60,7 +60,7 @@
           <div id="editorGUI">
               <div id="editorButtonArea">
                   <table id="buttonTable">
-                      <tr><td><button class="editorButton">Change template</button></td><td><button class="editorButton">Import image</button></td></tr>
+                      <tr><td><a href="../templates"><button class="editorButton">Change template</button></a></td><td><button class="editorButton">Import image</button></td></tr>
                       <tr><td><button class="editorButton">Undo</button></td><td><button class="editorButton">Redo</button></td></tr>
                   </table>
                   <button>Add RSVP</button>
