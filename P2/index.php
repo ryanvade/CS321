@@ -19,6 +19,7 @@
 
     require './inc/controllers/RegisterUser.php';
     require './inc/controllers/LoginUser.php';
+    require './inc/controllers/CreateOrder.php';
 
 
 	function getCurrentUri()
@@ -101,8 +102,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             print_r($_POST);
             break;
         case 'order':
-            echo 'Order with: ';
-            print_r($_POST);
+            $newOrder = new CreateOrder($db, $_POST['quantity']*5, $_POST['address'], $_POST['city'], $_POST['zipcode'], $_POST['state'], $_COOKIE['user_id']);
+            $newOrder->action();
+            redirect('./order-confirm');
             break;
         default:
             redirect('./index');

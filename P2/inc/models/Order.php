@@ -14,7 +14,7 @@ class Order
   private $city;
   private $zipcode;
   private $state;
-  private $tacking_number;
+  private $tracking_number;
 
 
   public function __construct($id, $db, $user)

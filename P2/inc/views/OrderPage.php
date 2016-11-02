@@ -146,10 +146,10 @@ class OrderPage{
     			<h3>Shipping Information</h3>
     		</div>
     		<div class="row">
-    			Address: <input type="text" required/>
+    			Address: <input name="address" type="text" required/>
     		</div>
     		<div class="row">
-    			City: <input type="text" required/>
+    			City: <input name="city" type="text" required/>
     		</div>
     		<div class="row">
     			State: <select name=\'state\' required>
@@ -171,7 +171,7 @@ class OrderPage{
     		</select>
     	</div>
     	<div class="row">
-    		Zip Code: <input class="zip" type="number" min="0001" max="9999" required/>
+    		Zip Code: <input name="zipcode" class="zip" type="number" min="0001" max="9999" required/>
         <span class="error" id="zip-error" style="color: Red; display: none">* Input digits (0 - 9)</span>
     	</div>
     	<div class="row">
