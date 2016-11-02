@@ -27,13 +27,13 @@ class Order
     }else {
       $this->id = $id;
       $row = $this->db->getRow($this->table, ['id'], [$id]);
-      $this->user_id = $row['user_id'];
-      $this->cost = $row['cost'];
-      $this->address = $row['address'];
-      $this->city = $row['city'];
-      $this->zipcode = $row['zipcode'];
-      $this->state = $row['state'];
-      $this->tracking_number = $row['tracking_number'];
+      $this->cost = $row[1];
+      $this->address = $row[2];
+      $this->city = $row[3];
+      $this->zipcode = $row[4];
+      $this->state = $row[5];
+      $this->user_id = $row[6];
+      $this->tracking_number = $row[7];
     }
   }
 

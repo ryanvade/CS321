@@ -20,7 +20,7 @@ class CreateOrder {
         $this->user = $user;
     }
 
-    public function action()
+    public function action($tracking_number)
     {
         $columns = array(
             'cost',
@@ -28,20 +28,22 @@ class CreateOrder {
             'city',
             'zipcode',
             'state',
-            'user_id'
+            'user_id',
+            'tracking_number'
         );
-        
+
         $values = array(
             $this->cost,
             $this->address,
             $this->city,
             $this->zipcode,
             $this->state,
-            $this->user
+            $this->user,
+            $tracking_number
         );
-        
-        
+
+
         return $this->db->insert('orders', $columns, $values);
     }
-    
+
 }

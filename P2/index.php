@@ -31,6 +31,10 @@
 		return $uri;
 	}
 
+  function generateRandomString($length = 10) {
+    return substr(str_shuffle(str_repeat($x='!@#0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
+
     function redirect($url, $statusCode = 303)
     {
         header('Location: ' . $url, true, $statusCode);
@@ -102,8 +106,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             print_r($_POST);
             break;
         case 'order':
-            $newOrder = new CreateOrder($db, $_POST['quantity']*5, $_POST['address'], $_POST['city'], $_POST['zipcode'], $_POST['state'], $_COOKIE['user_id']);
-            $newOrder->action();
+            $order = new CreateOrder($db, $_POST['quantity']*5, $_POST['address'], $_POST['city'], $_POST['zipcode'], $_POST['state'], $_COOKIE['user_id']);
+            $id = $order->action(generateRandomString());
+            setcookie('order_id', $id, time() + (86400 * 30), "/");
             redirect('./order-confirm');
             break;
         default:
@@ -119,7 +124,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         if(isset($_COOKIE['order_id']))
         {
-            $order = new Order($_COOKIE['order_id'], $db);
+            $order = new Order($_COOKIE['order_id'], $db, $user);
         }
 
 
@@ -211,6 +216,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
             break;
         case 'order-confirm':
+            setcookie('order_id', '', time()-1000);
+            setcookie('order_id', '', time()-1000, '/');
             $page = new OrderConfirmationPage($user, $order);
             echo $page->view();
             break;

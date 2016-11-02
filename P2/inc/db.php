@@ -167,7 +167,8 @@ class db
         `city` varchar(150) DEFAULT NULL,
         `zipcode` int(11) DEFAULT NULL,
         `state` varchar(100) DEFAULT NULL,
-        `user_id` int(11) NOT NULL
+        `user_id` int(11) NOT NULL,
+        `tracking_number` varchar(10) DEFAULT NULL
       ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
       $this->mysqli->query($query);
 
@@ -203,7 +204,7 @@ class db
             ADD PRIMARY KEY (`id`),
             ADD UNIQUE KEY `orders_id_uindex` (`id`),
             ADD UNIQUE KEY `orders_cost_uindex` (`cost`),
-            ADD UNIQUE KEY `orders_user_id_uindex` (`user_id`);";
+            ADD KEY `orders_user_id_uindex` (`user_id`);";
       $this->mysqli->query($query);
 
       $query = "ALTER TABLE `sessions`
