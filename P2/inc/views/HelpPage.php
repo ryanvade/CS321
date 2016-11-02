@@ -99,7 +99,7 @@ $view .='</header>
                 <img src="./images/edit.PNG" alt="HTML5 Icon" style="width:400px;height:500px;">
             </p>
             <li>
-                After you are done editing your invitation choose quantity, sizing of invitations, and fill out shipping
+                After you are done editing your invitation choose the quantity and fill out shipping
                 information for your order.
             </li>
             <p>
