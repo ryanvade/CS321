@@ -107,8 +107,8 @@ class TemplatePage {
     			<form>
     				<table id = "tablePage">
               <tr>
-        				<td><a href="./edit/21"><img id= "tableimg" height="200" width="150" src ="images/wedding/wedding 1.jpg"></a></td>
-        				<td><a href="./edit/22"><img id= "tableimg" height="200" width="150" src ="images/wedding/wedding 2.png"></a></td>
+        				<td><a href="./edit/21"><img id= "tableimg" height="200" width="150" src ="images/wedding/wedding1.jpg"></a></td>
+        				<td><a href="./edit/22"><img id= "tableimg" height="200" width="150" src ="images/wedding/wedding2.png"></a></td>
         				<td><a href="./edit/23"><img id= "tableimg" height="200" width="150" src ="images/wedding/wedding3.jpg"></a></td>
       				</tr>
             </table>
