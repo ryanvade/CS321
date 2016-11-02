@@ -93,7 +93,7 @@ class OrderPage{
     	<img src ="./images/hallmarkCardsLogo.png">
     		<div class="nav">
     			<ul>
-    				<li><a href="newIndex.html">Home</a></li>
+    				<li><a href="./index">Home</a></li>
     				<ul style="float: right; list-style-type: none;">
     					<li><a href ="./tracking">Track Orders</a></li>
     					<li><a href="#">User</a></li>
