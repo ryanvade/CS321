@@ -99,7 +99,8 @@ function placeBox(e) {
             "text-align": getAlignment(),
             "font-weight": getBold(),
             "font-style": getItalic(),
-            "text-decoration": getUnderline()
+            "text-decoration": getUnderline(),
+            "color": getColor()
         });
         $("#editorArea").append(box);
 
@@ -157,6 +158,7 @@ function setSelected(box) {
     setUnderline($(box).css("text-decoration"));
     setFontSize($(box).css("font-size"));
     setAlignment($(box).css("text-align"));
+    setColor($(box).css("color"));
 }
 
 $("#showborders").click(function(e) {
@@ -213,6 +215,10 @@ $("#alignment").change(function() {
     $(lastSelectedBox).css("text-align", $("#alignment").val());
 });
 
+$("#color").change(function() {
+    $(lastSelectedBox).css("color", $("#color").val());
+});
+
 function getFont() {
     var value = $("#fontSelect").val();
     switch(value) {
@@ -252,6 +258,10 @@ function getFontSize() {
 
 function getAlignment() {
     return $("#alignment").val();
+}
+
+function getColor() {
+    return $("#color").val();
 }
 
 function setFont(font) {
@@ -299,4 +309,29 @@ function setAlignment(alignment) {
         case "right": $("#alignment").val("Right");
             break;
     }
+}
+
+function setColor(color) {
+    console.log(color);
+    var newColor;
+    switch(color) {
+        case "rgb(0, 0, 0)": newColor = "Black";
+            break;
+        case "rgb(0, 0, 255)": newColor = "Blue";
+            break;
+        case "rgb(0, 128, 0)": newColor = "Green";
+            break;
+        case "rgb(255, 165, 0)": newColor = "Orange";
+            break;
+        case "rgb(255, 192, 203)": newColor = "Pink";
+            break;
+        case "rgb(128, 0, 128)": newColor = "Purple";
+            break;
+        case "rgb(255, 0, 0)": newColor = "Red";
+            break;
+        case "rgb(255, 255, 0)": newColor = "Yellow";
+            break;
+        case "rgb(255, 255, 255)": newColor = "White";
+    }
+    $("#color").val(newColor);
 }

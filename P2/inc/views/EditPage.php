@@ -96,7 +96,7 @@
                         <option>Verdana</option>
                         <option>Wingdings</option>
                     </select>
-                    <input id="fontsize" type="number" min=1 max=100 value=14>
+                    <input id="fontsize" title="Font Size" type="number" min=1 max=100 value=14>
                     <label title="Bold" style="font-weight: bold">B:<input type="checkbox" id="bold"></label>
                     <label title="Italic" style="font-style: italic">I:<input type="checkbox" id="italic"></label>
                     <label title="Underline" style="text-decoration: underline">U:<input type="checkbox" id="underline"></label>
@@ -123,7 +123,6 @@
                   </span>
                   <div id="editorArea">';
 
-                  //TEMP
                   $view .= '<img class="template" id="template" alt="" title="Click to outside of a text box to enable dragging" src="../'.$this->template->imageLocation().'" width="525" height="720">';
 
                   $view .= '
