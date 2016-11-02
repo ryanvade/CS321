@@ -15,6 +15,7 @@
     require './inc/views/HelpPage.php';
     require './inc/views/OrderConfirmationPage.php';
     require './inc/views/TrackOrdersPage.php';
+    require './inc/views/OrderPage.php';
 
     require './inc/controllers/RegisterUser.php';
     require './inc/controllers/LoginUser.php';
@@ -180,13 +181,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
             if(isset($routes[2]) && is_numeric($routes[2]))
             {
-                if(!isset($_COOKIE['order_id']))
+                if($order == null)
                 {
                   $order = new Order(null, $db, $user);
                   setcookie('order_id', $order->id(), time() + (86400 * 30), "/");
                 }
                 $template = new Template($db, $routes[2]);
-                $invitation = new Invitation($db, $user, $order, $template);
+                $invitation = new Invitation(null, $db, $user, $order, $template);
                 $page = new EditPage($db, $user, $template);
                 echo $page->view();
             }else
@@ -203,7 +204,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
               {
                 $order = new Order(null, $db, $user);
               }
-              echo 'order page';
+              $page = new OrderPage($db, $user);
+              echo $page->view();
             }
             break;
         case 'order-confirm':
