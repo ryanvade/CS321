@@ -120,20 +120,20 @@ class OrderPage{
     		</div>
     		<div class="row">
     			Credit Card #:
-    			<input class="inputCard" type="number"  min="1000" max="9999" name="creditCard1" id="creditCard1" required/>
+    			<input class="inputCard" type="number"  max="9999" name="creditCard1" id="creditCard1" required/>
           -
-          <input class="inputCard" type="number" min="1000" max="9999" name="creditCard2" id="creditCard2" required/>
+          <input class="inputCard" type="number" max="9999" name="creditCard2" id="creditCard2" required/>
           -
-          <input class="inputCard" type="number" min="1000" max="9999" name="creditCard3" id="creditCard3" required/>
+          <input class="inputCard" type="number" max="9999" name="creditCard3" id="creditCard3" required/>
     			-
-          <input class="inputCard" type="number" min="1000" max="9999" name="creditCard4" id="creditCard4" required/>
+          <input class="inputCard" type="number" max="9999" name="creditCard4" id="creditCard4" required/>
           <span class="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
     		</div>
     		<div class="row">
     			Expiration Date: <input type="month" min="2011-01" max="2021-12" required/>
     		</div>
     		<div class="row">
-    			CSV: <input class="csv" type="number" min="001" max="999" required/>
+    			CSV: <input class="csv" type="number" max="999" required/>
           <span class="error" id="csv-error" style="color: Red; display: none">* Input digits (0 - 9)</span>
     		</div>
     		<div class="row">
@@ -171,7 +171,7 @@ class OrderPage{
     		</select>
     	</div>
     	<div class="row">
-    		Zip Code: <input name="zipcode" class="zip" type="number" min="0001" max="9999" required/>
+    		Zip Code: <input name="zipcode" class="zip" type="number" max="99999" required/>
         <span class="error" id="zip-error" style="color: Red; display: none">* Input digits (0 - 9)</span>
     	</div>
     	<div class="row">
