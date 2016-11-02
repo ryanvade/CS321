@@ -23,6 +23,8 @@ class LoginPage
 				<ul class="inner-nav-ul">
 					<li><a href="./register">Create Account</a></li>
 					<li><a href="./login">LogIn</a></li>
+                                        <li><a href="./help">Help</a></li>
+                                          <li><a href ="./tracking">Track Orders</a></li>
 				</ul>
 			</ul>
 		</div>

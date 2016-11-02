@@ -33,6 +33,7 @@
             <li><a href="../index">Home</a></li>
             <ul class="inner-nav-ul">
               <li><a href="../register">Create Account</a></li>
+              <li><a href="../help">Help</a></li>
               <li><a href ="../tracking">Track Orders</a></li>
               <li><a href="../templates">Templates</a></li>
               <li><a href="../login">Log In</a></li>
@@ -48,6 +49,7 @@
                 <ul class="inner-nav-ul">
                   <li><a href="../templates">Templates</a></li>
                   <li><a href="../help">Help</a></li>
+                  <li><a href ="../tracking">Track Orders</a></li>
                   <li><a href="../logout">Logout</a></li>
                   <li><a href ="#">' . $this->user->name() . '</a></li>
                 </ul>

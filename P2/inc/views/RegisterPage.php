@@ -23,6 +23,8 @@ class RegisterPage
 				<ul class="outer-nav-ul">
 					<li><a href="./index">Home</a></li>
 					<ul class="inner-nav-ul">
+                                                <li><a href="./help">Help</a></li>
+                                                <li><a href ="./tracking">Track Orders</a></li>
 						<li><a href="./login">LogIn instead?</a></li>
 					</ul>
 				</ul>
