@@ -49,48 +49,72 @@ class HelpPage {
         </div>';
     }
 $view .='</header>
-        <div class="help" >
-            <h1 class = "help"> Welcome to the help page</h1>
-            <p class = "help">
-                Sometimes using Hallmark Cards for designing invitations can seem daunting. Hopefully we
-                can help you through the design process of your invitations.
+
+         <div class="help" >
+        <h1 class = "help"> Welcome to the help page</h1>
+        <p class = "help">
+            Sometimes using Hallmark Cards for designing invitations can seem daunting. Hopefully we
+            can help you through the design process of your invitations.
+        </p>
+
+        <ul >
+            <h2 class = "help">
+                Having trouble logging in?
+            </h2>
+            <p>
+                Try creating an account first:
             </p>
 
-            <ul >
-                <h2 class = "help">
-                    Having trouble logging in?
-                </h2>
-                <p>
-                    Make sure you enter your username and password correctly and if you cannot remember them to
-                    contact an administrator to have them reset the account for you.
-                </p>
-                <h2 class = "help">
-                    How to design an invitation:
-                </h2>
-                <li>
-                    First choose a template from the selection after logging in.
-                </li>
-                <br>
-                <li>
-                    Next on the design page feel free to upload images, implement text boxes, choose fonts, and sizing of
-                    lettering to make your invitation unique.
-                </li>
-                <br>
-                <li>
-                    After you are done editing your invitation choose quantity, sizing of invitations, and fill out shipping
-                    information for your order.
-                </li>
-                <br>
-                <li>
-                    You should be given a tracking number that you can enter into the tracking page and see your order\'s
-                    information now.
-                </li>
-                <h3 class = "help">
-                    It\'s That Easy!
-                </h3>
-            </ul>
+            <p>
+                <img src="./images/Capture.PNG" alt="HTML5 Icon" style="width:800px;height:500px;">
+                <img src="./images/createAccount.PNG" alt="HTML5 Icon" style="width:300px;height:250px;">
+            </p>
 
-        </div>
+
+            <p>
+                After that try logging into your account:
+
+            </p>
+
+            <p>
+                <img src="./images/login.PNG" alt="HTML5 Icon" style="width:100px;height:100px;">
+                <img src="./images/loginInfo.PNG" alt="HTML5 Icon" style="width:500px;height:250px;">
+            </p>
+
+            <h2 class = "help">
+                How to design an invitation:
+            </h2>
+            <li>
+                First choose a template from the selection, like the one below, after logging in.
+            </li>
+            <p>
+                <img src="./images/example.PNG" alt="HTML5 Icon" style="width:300px;height:250px;">
+            </p>
+            <li>
+                Next on the design page feel free to upload images, implement text boxes, choose fonts, and sizing of
+                lettering to make your invitation unique. To change the text box size you must click the bottom right
+                and drag.
+            </li>
+            <p>
+                <img src="./images/edit.PNG" alt="HTML5 Icon" style="width:400px;height:500px;">
+            </p>
+            <li>
+                After you are done editing your invitation choose quantity, sizing of invitations, and fill out shipping
+                information for your order.
+            </li>
+            <p>
+                <img src="./images/payment.PNG" alt="HTML5 Icon" style="width:700px;height:500px;">
+            </p>
+            <li>
+                You should be given a tracking number that you can enter into the tracking page and see your order\'s
+                information now.
+            </li>
+            <h3 class = "help">
+                It\'s That Easy!
+            </h3>
+        </ul>
+
+    </div>
 
     </body>
 
