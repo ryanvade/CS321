@@ -59,10 +59,11 @@ class OrderConfirmationPage {
     <ul class = "thanks" style = "list-style-type:none">
         <li class = "thanks" id="listZero"> Order complete!</li>
         <br>
-        <li class = "thanks" id="listOne"> Confirmation Number:</li>
+        <li class = "thanks" id="listOne"> Tracking Number:</li>
         <br>
         <li class = "thank_you" id="listTwo">' . $this->order->trackingNumber() .'</li>
         <br>
+        <li class = "thank_you">Copy or write down the tracking number to track your order.</li>
         <li id="listThree">Thanks!</li>
     </ul>
     <br>
