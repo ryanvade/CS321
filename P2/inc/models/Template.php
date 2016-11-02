@@ -22,4 +22,9 @@ class Template
     return $this->image_location;
   }
 
+  public function id()
+  {
+    return $this->id;
+  }
+
 }

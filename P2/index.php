@@ -172,9 +172,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             echo $page->view();
             break;
         case 'edit':
+            if($user == null)
+            {
+              setcookie('login_page', 'You must login to edit templates.', time() + (86400 * 30), "/");
+              setcookie('redirect', './templates', time() + (86400 * 30), "/");
+              redirect('./login');
+            }
             if(isset($routes[2]) && is_numeric($routes[2]))
             {
+                if(!isset($_COOKIE['order_id']))
+                {
+                  $order = new Order(null, $db, $user);
+                  setcookie('order_id', $order->id(), time() + (86400 * 30), "/");
+                }
                 $template = new Template($db, $routes[2]);
+                $invitation = new Invitation($db, $user, $order, $template);
                 $page = new EditPage($db, $user, $template);
                 echo $page->view();
             }else
