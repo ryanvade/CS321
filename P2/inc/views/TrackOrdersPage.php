@@ -55,11 +55,18 @@ class TrackOrdersPage{
        <body>
 		<div class="log" >
 			<h1 class="loginH1">Track Your Order</h1>
-			<form>
-				<input type = "text" id = "username"  placeholder="Order Number"/>
-				<div class = "siteText" >
+      <h2>Enter the tracking number of your order to view the order details.</h2>
+			<form method="POST" action="./tracking">
+      <input name="tracking_number" type = "text" placeholder="Tracking Number"/>';
+      if(isset($_COOKIE['tracking_page']))
+      {
+        $view .= '<br><span style="color: red;">'. $_COOKIE['tracking_page'] . '</span>';
+        setcookie('tracking_page', '', time()-1000);
+        setcookie('tracking_page', '', time()-1000, '/');
+      }
+      $view .= '<div class = "siteText" >
 					<p>
-						<a href="trackOrdersData.html">Track Now!</a>
+						<button type="submit">Submit</button>
 					</p>
 				</div>
 			</form>

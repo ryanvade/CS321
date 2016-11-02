@@ -96,4 +96,9 @@ class Order
     $this->tracking_number = $tracking_number;
     $this->db->updateRow($this->table, ['tracking_number'], [$tracking_number], ['id'], [$this->id]);
   }
+
+  public function zipCode()
+  {
+    return $this->zipcode;
+  }
 }

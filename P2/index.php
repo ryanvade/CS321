@@ -16,6 +16,7 @@
     require './inc/views/OrderConfirmationPage.php';
     require './inc/views/TrackOrdersPage.php';
     require './inc/views/OrderPage.php';
+    require './inc/views/OrderDetailsPage.php';
 
     require './inc/controllers/RegisterUser.php';
     require './inc/controllers/LoginUser.php';
@@ -33,7 +34,7 @@
 
   function generateRandomString($length = 10) {
     return substr(str_shuffle(str_repeat($x='!@#0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
-}
+  }
 
     function redirect($url, $statusCode = 303)
     {
@@ -101,9 +102,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
 
             break;
-        case 'addInvitation':
-            echo 'Add Invitation with: ';
-            print_r($_POST);
+        case 'tracking':
+            $row = $db->getRow('orders', ['tracking_number'], [$_POST['tracking_number']]);
+            if(isset($row[0]))
+            {
+              setcookie('order_id', $row[0], time() + (86400 * 30), "/");
+              redirect('./orderDetails');
+            }else {
+              setcookie('tracking_page', 'No order exists with that tracking number.', time() + (86400 * 30), "/");
+              redirect('./tracking');
+            }
             break;
         case 'order':
             $order = new CreateOrder($db, $_POST['quantity']*5, $_POST['address'], $_POST['city'], $_POST['zipcode'], $_POST['state'], $_COOKIE['user_id']);
@@ -224,6 +232,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         case 'tracking':
             $page = new TrackOrdersPage($user, $order);
             echo $page ->view();
+            break;
+        case 'orderDetails':
+            $page = new OrderDetailsPage($db, $user, $order);
+            echo $page->view();
             break;
         case 'help':
           $page = new HelpPage($user);

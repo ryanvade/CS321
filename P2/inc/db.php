@@ -89,6 +89,7 @@ class db
         {
             $query .= ' AND ' . $columns[$i] . " ='" . $values[$i] . "'";
         }
+        $query .= ';';
         $result = $this->mysqli->query($query);
 
         if($result)
